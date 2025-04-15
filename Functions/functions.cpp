@@ -18,32 +18,51 @@ using namespace std;
 // }
 
 // A function to return all the prime numbers before the number n
-vector<int> findPrimes(int n)
+// vector<int> findPrimes(int n)
+// {
+//     vector<int> prime(n + 1, 1);
+
+//     prime[0] = prime[1] = 0;
+
+//     for (int i = 2; i <= sqrt(n); ++i)
+//     {
+//         if (prime[i] == 1)
+//         {
+//             for (int j = i * i; j <= n; j += i)
+//             {
+//                 prime[j] = 0;
+//             }
+//         }
+//     }
+
+//     vector<int> ans;
+//     for (int i = 2; i<=n; ++i)
+//     {
+//         if (prime[i] == 1)
+//         {
+//             ans.push_back(i);
+//         }
+//     }
+//     return ans;
+// }
+
+// Print the Fibonacci Series
+
+void Fibonacci(int n)
 {
-    vector<int> prime(n + 1, 1);
-
-    prime[0] = prime[1] = 0;
-
-    for (int i = 2; i <= sqrt(n); ++i)
-    {
-        if (prime[i] == 1)
-        {
-            for (int j = i * i; j <= n; j += i)
-            {
-                prime[j] = 0;
-            }
-        }
-    }
-
-    vector<int> ans;
-    for (int i = 2; i<=n; ++i)
-    {
-        if (prime[i] == 1)
-        {
-            ans.push_back(i);
-        }
-    }
-    return ans;
+ int a = 0;
+ int b = 1;
+ if (n == 1) return;
+ cout << b << " ";
+ for (int i = 2; i < n; ++i)
+ {
+    long long sum = a + b;
+    a = b;
+    b = sum;
+    
+    cout << sum << " ";
+ }
+ cout << endl;
 }
 
 int main()
@@ -57,12 +76,15 @@ int main()
     // {
     //     cout << "The number is not a prime";
     // }
-    int n = 100;
-    vector<int> primes = findPrimes(n);
-    for (int prime: primes)
-    {
-        cout << prime << " , ";
-    }
-    cout << endl;
+    // int n = 100;
+    // vector<int> primes = findPrimes(n);
+    // for (int prime: primes)
+    // {
+    //     cout << prime << " , ";
+    // }
+    // cout << endl;
+    int n = 15;
+    Fibonacci(n);
+    
     return 0;
 }
